@@ -1,2 +1,2 @@
 # Projects
-This repository contains the various projects I have built by myself.
+This repository contains the various side projects I have built.
