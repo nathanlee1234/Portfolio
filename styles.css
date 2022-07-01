@@ -1,11 +1,11 @@
 html {
   box-sizing: border-box;
-  width: 100%;
-
+  width: 100vw;
   font-family: Arial;
+  overflow-x: hidden;
 }
-* {
-  scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth !important;
 }
 .nav-bar {
   position: fixed;
@@ -35,12 +35,12 @@ html {
   color: black;
 }
 main {
-  width: 100%;
+  width: 100vw;
   padding-top: 5em;
 }
 .about {
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-color: white;
   display: flex;
@@ -69,6 +69,10 @@ i {
   font-size: 50px;
   padding: 10px;
 }
+i:hover {
+  background-color: black;
+  color: white;
+}
 .fa-linkedin-in {
   color: blue;
 }
@@ -76,10 +80,42 @@ i {
   color: green;
 }
 .projects {
-  width: 100%;
-  height: 500px;
-  position: absolute;
+  margin: auto;
+  height: auto;
   background-color: brown;
+}
+.project-header {
+  padding-top: 1em;
+  text-align: center;
+  font-size: 40px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;
+  grid-gap: 2rem;
+  width: calc(100vw - 4rem);
+  height: auto;
+  padding: 0 2rem 2rem 2rem;
+}
+.project {
+  background-color: white;
+  height: auto;
+  text-align: center;
+}
+.project-image {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+.project-title {
+  color: black;
+}
+.contact {
+  width: 100vw;
+  height: auto;
+  background-color: black;
+  position: absolute;
 }
 @media (max-width: 75em) {
   .nav-bar {
