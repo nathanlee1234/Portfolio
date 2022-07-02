@@ -4,16 +4,12 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth !important;
 }
-main {
-  font-family: "Russo One", sans-serif;
-}
 p {
   font-family: "Roboto Mono", monospace;
 }
 :root {
   --mainColor: white;
-  --secondaryColor: brown;
-  --navbarColor: blue;
+  --secondaryColor: rgb(21, 208, 21);
   --navTextColor: white;
   --textColor: black;
 }
@@ -45,8 +41,8 @@ p {
   color: var(--secondaryColor);
 }
 main {
-  width: 100vw;
   padding-top: 5em;
+  font-family: "Russo One", sans-serif;
 }
 .about {
   top: 0;
@@ -93,6 +89,7 @@ i:hover {
   margin: auto;
   height: auto;
   background-color: var(--secondaryColor);
+  width: 100vw;
 }
 .project-header {
   padding-top: 1em;
@@ -126,6 +123,10 @@ i:hover {
 }
 .project-title {
   color: var(--textColor);
+}
+.contact {
+  width: 100vw;
+  height: auto;
 }
 .contact-title {
   text-align: center;
@@ -211,5 +212,10 @@ i:hover {
 @media (max-width: 44em) {
   .contact-container {
     margin: 0 1em 5em 1em;
+  }
+}
+@media (max-width: 450px) {
+  .nav-link {
+    width: 100px;
   }
 }
