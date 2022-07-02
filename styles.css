@@ -218,4 +218,7 @@ i:hover {
   .nav-link {
     width: 100px;
   }
+  .nav-bar {
+    justify-content: center;
+  }
 }
