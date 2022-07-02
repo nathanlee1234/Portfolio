@@ -1,2 +1,2 @@
-# Projects
-This repository contains the various side projects I have built.
+# Portfolio-Website
+This repository contains the code used to contruct my portfolio website.
