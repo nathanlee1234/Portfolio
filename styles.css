@@ -1,11 +1,21 @@
 html {
   box-sizing: border-box;
   width: 100vw;
-  font-family: Arial;
   overflow-x: hidden;
-}
-html {
   scroll-behavior: smooth !important;
+}
+main {
+  font-family: "Russo One", sans-serif;
+}
+p {
+  font-family: "Roboto Mono", monospace;
+}
+:root {
+  --mainColor: white;
+  --secondaryColor: brown;
+  --navbarColor: blue;
+  --navTextColor: white;
+  --textColor: black;
 }
 .nav-bar {
   position: fixed;
@@ -13,7 +23,7 @@ html {
   left: 0;
   height: 5em;
   width: calc(100% - 2em);
-  background-color: blue;
+  background-color: var(--secondaryColor);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -31,8 +41,8 @@ html {
   justify-content: center;
 }
 .nav-link:hover {
-  background-color: white;
-  color: black;
+  background-color: var(--mainColor);
+  color: var(--secondaryColor);
 }
 main {
   width: 100vw;
@@ -42,7 +52,7 @@ main {
   top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white;
+  background-color: var(--mainColor);
   display: flex;
   justify-content: center;
 }
@@ -70,19 +80,19 @@ i {
   padding: 10px;
 }
 i:hover {
-  background-color: black;
+  background-color: var(--secondaryColor);
   color: white;
 }
 .fa-linkedin-in {
-  color: blue;
+  color: rgb(0, 119, 181);
 }
 .fa-github {
-  color: green;
+  color: black;
 }
 .projects {
   margin: auto;
   height: auto;
-  background-color: brown;
+  background-color: var(--secondaryColor);
 }
 .project-header {
   padding-top: 1em;
@@ -91,15 +101,18 @@ i:hover {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(320px, 100%/4)), 1fr)
+  );
   justify-content: center;
   grid-gap: 2rem;
-  width: calc(100vw - 4rem);
+  width: auto;
   height: auto;
   padding: 0 2rem 2rem 2rem;
 }
 .project {
-  background-color: white;
+  background-color: var(--mainColor);
   height: auto;
   text-align: center;
 }
@@ -112,19 +125,19 @@ i:hover {
   height: auto;
 }
 .project-title {
-  color: black;
+  color: var(--textColor);
 }
 .contact-title {
   text-align: center;
 }
 .contact-container label {
-  color: white;
+  color: var(--mainColor);
 }
 .contact-container {
   max-width: 600px;
   margin: 0 auto 5em auto;
   padding: 1em;
-  background-color: black;
+  background-color: var(--secondaryColor);
   line-height: 2;
   border-radius: 5px;
 }
@@ -133,23 +146,26 @@ i:hover {
   height: 3em;
   margin: 5px 0;
   border-radius: 5px;
+  border-color: transparent;
 }
 .contact-container textarea {
   height: 10em;
   border-radius: 5px;
+  border-color: transparent;
 }
 #submit {
   width: 100%;
   height: 3em;
-  background-color: blue;
+  background-color: black;
   margin-top: 1em;
   font-size: 16px;
   border-radius: 5px;
-  border-color: blue;
+  border-color: black;
   color: white;
+  font-family: "Russo One";
 }
 #submit:hover {
-  background-color: green;
+  color: var(--secondaryColor);
 }
 @media (max-width: 75em) {
   .nav-bar {
