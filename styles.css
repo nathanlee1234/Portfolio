@@ -103,6 +103,9 @@ i:hover {
   height: auto;
   text-align: center;
 }
+.project:hover {
+  border: solid 20px black;
+}
 .project-image {
   object-fit: cover;
   width: 100%;
@@ -111,11 +114,42 @@ i:hover {
 .project-title {
   color: black;
 }
-.contact {
-  width: 100vw;
-  height: auto;
+.contact-title {
+  text-align: center;
+}
+.contact-container label {
+  color: white;
+}
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto 5em auto;
+  padding: 1em;
   background-color: black;
-  position: absolute;
+  line-height: 2;
+  border-radius: 5px;
+}
+.input-field {
+  width: 100%;
+  height: 3em;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.contact-container textarea {
+  height: 10em;
+  border-radius: 5px;
+}
+#submit {
+  width: 100%;
+  height: 3em;
+  background-color: blue;
+  margin-top: 1em;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: blue;
+  color: white;
+}
+#submit:hover {
+  background-color: green;
 }
 @media (max-width: 75em) {
   .nav-bar {
@@ -156,5 +190,10 @@ i:hover {
   }
   .about {
     height: auto;
+  }
+}
+@media (max-width: 44em) {
+  .contact-container {
+    margin: 0 1em 5em 1em;
   }
 }
