@@ -245,3 +245,8 @@ img {
     justify-content: center;
   }
 }
+.note {
+  text-align: center;
+  font-size: 10px;
+  padding-bottom: 1em;
+}
