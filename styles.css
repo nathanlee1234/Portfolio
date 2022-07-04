@@ -1,33 +1,43 @@
+:root {
+  --mainColor: black;
+  --secondaryColor: rgb(21, 208, 21);
+  --navTextColor: black;
+  --textColor: white;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 html {
   box-sizing: border-box;
-  width: 100vw;
-  overflow-x: hidden;
-  scroll-behavior: smooth !important;
+  width: 100%;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
 p {
   font-family: "Roboto Mono", monospace;
 }
-:root {
-  --mainColor: white;
-  --secondaryColor: rgb(21, 208, 21);
-  --navTextColor: white;
-  --textColor: black;
+h1 {
+  font-size: 70px;
 }
 .nav-bar {
   position: fixed;
   top: 0;
   left: 0;
   height: 5em;
-  width: calc(100% - 2em);
+  width: 100%;
   background-color: var(--secondaryColor);
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   padding-right: 2em;
+  z-index: 1;
+  border-bottom: solid 5px black;
 }
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: var(--navTextColor);
   font-size: 22px;
   font-weight: bold;
   height: 100%;
@@ -41,8 +51,16 @@ p {
   color: var(--secondaryColor);
 }
 main {
-  padding-top: 5em;
   font-family: "Russo One", sans-serif;
+  background-color: var(--mainColor);
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  top: 5em;
+  z-index: 0;
+  overflow: auto;
 }
 .about {
   top: 0;
@@ -51,6 +69,7 @@ main {
   background-color: var(--mainColor);
   display: flex;
   justify-content: center;
+  color: var(--textColor);
 }
 .about-container {
   width: 1200px;
@@ -60,9 +79,6 @@ main {
   align-items: center;
   gap: 5em;
   padding: 2em;
-}
-h1 {
-  font-size: 70px;
 }
 .summary {
   font-size: 20px;
@@ -74,10 +90,13 @@ h1 {
 i {
   font-size: 50px;
   padding: 10px;
+  color: white !important;
 }
-i:hover {
-  background-color: var(--secondaryColor);
-  color: white;
+.fa-github:hover {
+  background-color: #6cc644;
+}
+.fa-linkedin-in:hover {
+  background-color: rgb(0, 119, 181);
 }
 .fa-linkedin-in {
   color: rgb(0, 119, 181);
@@ -89,7 +108,9 @@ i:hover {
   margin: auto;
   height: auto;
   background-color: var(--secondaryColor);
-  width: 100vw;
+  left: 0;
+  color: var(--textColor);
+  padding: 0 4rem 4rem 4rem;
 }
 .project-header {
   padding-top: 1em;
@@ -98,35 +119,38 @@ i:hover {
 }
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, max(320px, 100%/4)), 1fr)
-  );
-  justify-content: center;
-  grid-gap: 2rem;
-  width: auto;
-  height: auto;
-  padding: 0 2rem 2rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+img {
+  display: block;
 }
 .project {
-  background-color: var(--mainColor);
-  height: auto;
+  background-color: blue;
   text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
 }
 .project:hover {
-  border: solid 20px black;
+  border: solid 20px white;
+  cursor: pointer;
 }
 .project-image {
-  object-fit: cover;
-  width: 100%;
   height: auto;
+  width: 100%;
+  object-fit: cover;
 }
 .project-title {
-  color: var(--textColor);
+  font-size: 1rem;
 }
 .contact {
   width: 100vw;
   height: auto;
+  color: var(--textColor);
 }
 .contact-title {
   text-align: center;
@@ -167,6 +191,7 @@ i:hover {
 }
 #submit:hover {
   color: var(--secondaryColor);
+  cursor: pointer;
 }
 @media (max-width: 75em) {
   .nav-bar {
@@ -177,7 +202,7 @@ i:hover {
     width: 140px;
   }
   main {
-    padding-top: 4.75em;
+    top: 4.75em;
   }
 }
 @media (max-width: 61em) {
@@ -189,10 +214,8 @@ i:hover {
     width: 130px;
   }
   main {
-    padding-top: 4.5em;
+    top: 4.5em;
   }
-}
-@media (max-width: 61em) {
   .about-container {
     display: flex;
     flex-wrap: wrap;
