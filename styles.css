@@ -4,6 +4,9 @@
   --navTextColor: black;
   --textColor: white;
 }
+* {
+  scroll-behavior: smooth;
+}
 *,
 *::before,
 *::after {
@@ -12,7 +15,6 @@
 html {
   box-sizing: border-box;
   width: 100%;
-  scroll-behavior: smooth !important;
   overflow: hidden;
 }
 p {
