@@ -1,0 +1,264 @@
+:root {
+  --mainColor: black;
+  --secondaryColor: rgb(143, 134, 134);
+  --textColor: black;
+}
+* {
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+p {
+  font-family: "Roboto Mono", monospace;
+}
+h1 {
+  font-size: 70px;
+}
+.nav-bar {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 5em;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding-right: 2em;
+  z-index: 1;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--navTextColor);
+  font-size: 22px;
+  font-weight: bold;
+  height: 100%;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-link:hover {
+  background-color: var(--mainColor);
+  color: var(--secondaryColor);
+}
+body {
+  font-family: "Russo One", sans-serif;
+  width: 100%;
+  height: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  overflow: scroll;
+  margin: 0;
+}
+main {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-image: url(sky.jpg);
+  width: 100%;
+  height: 2252px;
+  background-size: 1500px;
+}
+.about {
+  top: 0;
+  width: 100vw;
+  height: 630px;
+  display: flex;
+  justify-content: center;
+  color: var(--textColor);
+}
+.about-container {
+  width: 1200px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  gap: 5em;
+  padding: 2em;
+}
+.summary {
+  font-size: 20px;
+}
+.nathan-image {
+  width: 400px;
+  border-radius: 50%;
+}
+i {
+  font-size: 50px;
+  padding: 10px;
+  color: var(--textColor);
+  border-radius: 5px;
+}
+.fa-github:hover {
+  color: #6cc644;
+}
+.fa-linkedin-in:hover {
+  color: rgb(0, 119, 181);
+}
+.fa-github {
+  color: black;
+}
+.projects {
+  margin: auto;
+  height: auto;
+  left: 0;
+  color: var(--textColor);
+  padding: 0 4rem 4rem 4rem;
+}
+.project-header {
+  padding-top: 1em;
+  text-align: center;
+  font-size: 40px;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.project {
+  background-color: var(--secondaryColor);
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+.project:hover {
+  border: solid 20px white;
+  cursor: pointer;
+}
+.project-image:hover {
+  border-radius: 0;
+}
+.project-image {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.project-title {
+  font-size: 1rem;
+}
+.contact {
+  width: 100vw;
+  height: auto;
+  color: var(--textColor);
+}
+.contact-title {
+  text-align: center;
+}
+.contact-container label {
+  color: var(--mainColor);
+}
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto 5em auto;
+  padding: 1em;
+  background-color: var(--secondaryColor);
+  line-height: 2;
+  border-radius: 5px;
+}
+.input-field {
+  width: 100%;
+  height: 3em;
+  margin: 5px 0;
+  border-radius: 5px;
+  border-color: transparent;
+}
+.contact-container textarea {
+  height: 10em;
+  border-radius: 5px;
+  border-color: transparent;
+}
+#submit {
+  width: 100%;
+  height: 3em;
+  background-color: black;
+  margin-top: 1em;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: black;
+  color: white;
+  font-family: "Russo One";
+}
+#submit:hover {
+  color: var(--secondaryColor);
+  cursor: pointer;
+}
+@media (max-width: 75em) {
+  .nav-bar {
+    height: 4.75em;
+  }
+  .nav-link {
+    font-size: 21px;
+    width: 140px;
+  }
+  main {
+    height: 2800px;
+    background-size: 1900px;
+  }
+}
+@media (max-width: 61em) {
+  .nav-bar {
+    height: 4.5em;
+  }
+  .nav-link {
+    font-size: 20px;
+    width: 130px;
+  }
+
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+  }
+  .nathan-image {
+    width: 300px;
+  }
+  .about {
+    height: auto;
+  }
+  main {
+    height: 4900px;
+    background-size: 3300px;
+  }
+}
+@media (max-width: 44em) {
+  .contact-container {
+    margin: 0 1em 5em 1em;
+  }
+}
+@media (max-width: 450px) {
+  .nav-link {
+    width: 100px;
+  }
+  .nav-bar {
+    justify-content: center;
+  }
+}
+.note {
+  text-align: center;
+  font-size: 10px;
+  padding-bottom: 1em;
+}
