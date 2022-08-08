@@ -49,6 +49,24 @@ td {
 .red-piece.king {
     border: 3px solid gold;
 }
+#black-wins {
+    display: none;
+    font-size: 100px;
+    font-weight: thick;
+}
+#red-wins {
+    display: none;
+    font-size: 100px;
+    font-weight: thick;
+}
+#tie {
+    display: none;
+    font-size: 100px;
+    font-weight: thick;
+}
+#end-text {
+    display: none;
+}
 @media (max-height: 550px) {
     main {
         height: 100%;

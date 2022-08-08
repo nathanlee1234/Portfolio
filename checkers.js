@@ -37,10 +37,11 @@ function startTurn() {
         
     } else {
         playerPieces = blackPieces;
-    }
+    };
     for (let piece of playerPieces) {
         piece.addEventListener("click", getPiece);
-    }
+    };
+    checkForTie();
 };
 function getPiece() {
     reset();
@@ -55,7 +56,11 @@ function reset() {
         tile.removeAttribute("onclick");
     }
     for (let piece of playerPieces) {
-        piece.style.border = "3px solid white";
+        if (piece.classList.contains("king")) {
+            piece.style.border = "3px solid gold";
+        } else {
+            piece.style.border = "3px solid white";
+        }
     }
     selectedPiece.king = false;
     selectedPiece.topLeft = false;
@@ -75,7 +80,7 @@ function updateSelectedPiece() {
     };
 };
 function getAvailableMoves() {
-    if (redTurn) {
+    if (!redTurn) {
         if (layout[selectedPiece.pieceTile - 9] === null && !tiles[selectedPiece.pieceTile - 9].classList.contains("empty") && selectedPiece.king) {
             selectedPiece.topLeft = true;
             tiles[selectedPiece.pieceTile - 9].setAttribute("onclick", "movePiece(-9)");
@@ -156,7 +161,7 @@ function movePiece(number) {
             tiles[selectedPiece.pieceTile + number].innerHTML = `<div class='red-piece' id="${selectedPiece.pieceId}"</div>`;
             redPieces = document.getElementsByClassName("red-piece");
         };
-        if (selectedPiece.pieceTile + number >= 57) {
+        if (selectedPiece.pieceTile + number <= 7) {
             document.getElementById(selectedPiece.pieceId).classList.add("king");
         };
     } else {
@@ -167,7 +172,7 @@ function movePiece(number) {
             tiles[selectedPiece.pieceTile + number].innerHTML = `<div class='black-piece' id="${selectedPiece.pieceId}"</div>`;
             blackPieces = document.getElementsByClassName("black-piece");
         }
-        if (selectedPiece.pieceTile + number <= 7) {
+        if (selectedPiece.pieceTile + number >= 57) {
             document.getElementById(selectedPiece.pieceId).classList.add("king");
         };
     };
@@ -180,17 +185,32 @@ function movePiece(number) {
             redScore--;
         };
     };
+    checkForWin();
     for (let piece of playerPieces) {
         piece.removeAttribute("onclick");
         piece.removeEventListener("click", getPiece);
-    }
+    };
     selectedPiece.pieceId = -1;
     selectedPiece.pieceTile = -1;
     changePlayer();
-}
+};
+function checkForTie() {
+    for (let piece of playerPieces) {
+        
+    };
+};
+function checkForWin() {
+    if (blackScore === 0) {
+        document.getElementById("end-text").style.display = "value";
+        document.getElementById("red-wins").style.display = "value";
+    } else if (redScore === 0) {
+        document.getElementById("end-text").style.display = "value";
+        document.getElementById("black-wins").style.display = "value";
+    }
+};
 function changePlayer() {
     redTurn = !redTurn;
     startTurn();
-}
+};
 
 startTurn();
