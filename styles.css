@@ -141,10 +141,12 @@ i {
   color: white;
 }
 .project:hover {
-  border: solid 20px black;
+  border: solid 5px rgb(44, 237, 44);
   cursor: pointer;
 }
-
+.project-image:hover {
+  border-radius: 0;
+}
 .project-image {
   height: auto;
   width: 100%;
