@@ -54,3 +54,8 @@ td {
         height: 100%;
     }
 }
+@media (max-width: 500px) {
+    main {
+        max-width: 500px;
+    }
+}
