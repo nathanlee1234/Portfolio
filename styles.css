@@ -47,8 +47,7 @@ h1 {
   justify-content: center;
 }
 .nav-link:hover {
-  background-color: var(--mainColor);
-  color: var(--secondaryColor);
+  color: white;
 }
 body {
   font-family: "Russo One", sans-serif;
@@ -62,14 +61,15 @@ body {
   z-index: 0;
   overflow: scroll;
   margin: 0;
+  background: linear-gradient(to left, rgba(0, 170, 242, 0.967), rgb(255, 0, 174));
 }
 main {
   position: relative;
   top: 0;
   left: 0;
-  background-image: url(sky.jpg);
   width: 100%;
-  height: 2252px;
+  height: auto;
+  padding-bottom: 0.75em;
   background-size: 1500px;
 }
 .about {
@@ -94,6 +94,7 @@ main {
 }
 .nathan-image {
   width: 400px;
+  
   border-radius: 50%;
 }
 i {
@@ -103,7 +104,7 @@ i {
   border-radius: 5px;
 }
 .fa-github:hover {
-  color: #6cc644;
+  color: white;
 }
 .fa-linkedin-in:hover {
   color: rgb(0, 119, 181);
@@ -133,25 +134,22 @@ i {
 }
 
 .project {
-  background-color: var(--secondaryColor);
+  background-color: black;
   text-align: center;
   border-radius: 5px;
   text-decoration: none;
   color: white;
 }
 .project:hover {
-  border: solid 20px white;
+  border: solid 20px black;
   cursor: pointer;
 }
-.project-image:hover {
-  border-radius: 0;
-}
+
 .project-image {
   height: auto;
   width: 100%;
   object-fit: cover;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
 }
 .project-title {
   font-size: 1rem;
@@ -159,19 +157,19 @@ i {
 .contact {
   width: 100vw;
   height: auto;
-  color: var(--textColor);
+  color: white;
 }
 .contact-title {
   text-align: center;
 }
 .contact-container label {
-  color: var(--mainColor);
+  color: white;
 }
 .contact-container {
   max-width: 600px;
   margin: 0 auto 5em auto;
   padding: 1em;
-  background-color: var(--secondaryColor);
+  background: linear-gradient(to right, rgba(0, 170, 242, 0.967), rgb(255, 0, 174));
   line-height: 2;
   border-radius: 5px;
 }
@@ -199,7 +197,7 @@ i {
   font-family: "Russo One";
 }
 #submit:hover {
-  color: var(--secondaryColor);
+  color: rgba(0, 170, 242, 0.967);
   cursor: pointer;
 }
 @media (max-width: 75em) {
@@ -209,10 +207,6 @@ i {
   .nav-link {
     font-size: 21px;
     width: 140px;
-  }
-  main {
-    height: 2800px;
-    background-size: 1900px;
   }
 }
 @media (max-width: 61em) {
@@ -239,22 +233,18 @@ i {
   .about {
     height: auto;
   }
-  main {
-    height: 4900px;
-    background-size: 3300px;
-  }
 }
 @media (max-width: 44em) {
   .contact-container {
     margin: 0 1em 5em 1em;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 44em) {
   .nav-link {
     width: 100px;
   }
   .nav-bar {
-    justify-content: center;
+    justify-content: space-evenly;
   }
 }
 .note {

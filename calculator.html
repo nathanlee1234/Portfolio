@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <title>Javascript Scientific Calculator</title>
+        <link href="calculator.css" rel="stylesheet">
+        <script src="calculator.js" defer></script>
+    </head>
+    <body>
+        <div class="calculator">
+            <div class="output-box">
+            <input class="output" id="display" type="text" disabled/>
+            </div>
+            <button id="sin" class="button operation">Sin</button>
+            <button id="cos" class="button operation">Cos</button>
+            <button id="tan" class="button operation">Tan</button>
+            <button id="log" class="button operation">log</button>
+            <button id="log" class="button operation">ln</button>
+            <button id="pi" class="button operation">π</button>
+            <button id="square" class="button operation">x&sup2</button>
+            <button id="cube" class="button operation">x&sup3</button>
+            <button id="root" class="button operation">&#8730</button>
+            <button id="cube-root" class="button operation">&#8731</button>
+            <button id="e" class="button operation">e</button>
+            <button id="7" class="button number">7</button>
+            <button id="8" class="button number">8</button>
+            <button id="9" class="button number">9</button>
+            <button id="divide" class="button operation">/</button>
+            <button id="fraction" class="button operation">1/x</button>
+            <button id="4" class="button number">4</button>
+            <button id="5" class="button number">5</button>
+            <button id="6" class="button number">6</button>
+            <button id="multiply" class="button operation">x</button>  
+            <button id="factorial" class="button operation">!</button>
+            <button id="1" class="button number">1</button>
+            <button id="2" class="button number">2</button>
+            <button id="3" class="button number">3</button>
+            <button id="subtract" class="button operation">-</button>
+            <button id="percent" class="button operation">%</button>
+            <button id="negative" class="button">(-)</button> 
+            <button id="0" class="button number">0</button>
+            <button id="decimal" class="button">.</button>
+            <button id="add" class="button operation">+</button>
+            <button id="delete" class="button">DEL</button>
+            <button id="equals" class="button">=</button>
+            <button id="clear" class="button">C</button>
+        </div>
+        <div class="memory">
+            <div id="history"></div>
+            <button class="clearBank" id="wipe">Wipe</button>
+        </div>
+        <div id="app"></div>
+    </body>
+</html>

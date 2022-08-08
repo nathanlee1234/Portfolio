@@ -1,0 +1,105 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+}
+body {
+    background: linear-gradient(to bottom, rgba(0, 170, 242, 0.967), rgb(255, 0, 174));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    min-width: 900px;
+    padding: 2em 0;
+    margin: 0;
+    overscroll-behavior: none; 
+}
+.memory {
+    border: 5px solid black;
+}
+#history {
+    background-color: rgb(56, 46, 46);
+    width: 300px;
+    height: 444px;
+    max-height: 504px;
+    font-size: 30px;
+    color: rgb(111, 99, 99);
+    overflow-y: scroll;
+    font-weight: lighter;
+    white-space: nowrap;
+    display: block;
+    table-layout: fixed;
+}
+.clearBank {
+    width: 300px;
+    height: 2.3em;
+    border-top: 5px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background-color: rgb(10, 229, 249);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.clearBank:hover {
+    cursor: pointer;
+    border: 1px solid white;
+}
+.calculator {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: minmax(80px, auto) repeat(7, 60px);
+    width: 500px;
+}
+.output-box {
+    grid-column: span 5;
+    background-color: rgb(56, 46, 46);
+    border: 5px solid black;
+    display: flex;
+}
+
+.output {
+    font-size: 30px;
+    text-align: right;
+    letter-spacing: 3px;
+    background-color: rgb(56, 46, 46);
+    width: 100%;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+.calculator > button {
+    font-size: 20px;
+    background-color: rgb(34, 30, 30);
+    border-color: rgb(34, 30, 30);
+    font-weight: bold;
+}
+.calculator > button:hover {
+    border: 1px solid white;
+    cursor: pointer;
+}
+.number {
+    color: rgba(0, 170, 242, 0.967);
+}
+.operation {
+    color: rgb(255, 0, 174);
+}
+#delete {
+    background-color: rgb(255, 0, 174);
+    color: white;
+}
+#clear {
+    background-color: rgb(10, 229, 249);
+    color: white;
+}
+#equals {
+    background-color: rgba(0, 170, 242, 0.967);
+    color: white;
+    grid-column: span 3;
+}
+#decimal, #negative {
+    color:  rgb(6, 121, 244);
+}
