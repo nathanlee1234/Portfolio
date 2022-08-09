@@ -15,6 +15,7 @@ let blackPieces = document.getElementsByClassName("black-piece");
 let redTurn = true;
 let redScore = 12;
 let blackScore = 12;
+let jump = false;
 let playerPieces;
 
 let selectedPiece = {
@@ -41,12 +42,12 @@ function startTurn() {
     for (let piece of playerPieces) {
         piece.addEventListener("click", getPiece);
     };
-    checkForTie();
 };
 function getPiece() {
     reset();
     updateSelectedPiece();
     getAvailableMoves();
+    getJumpMoves();
     if (selectedPiece.topLeft || selectedPiece.topRight || selectedPiece.bottomLeft || selectedPiece.bottomRight || selectedPiece.jumpTopLeft || selectedPiece.jumpTopRight || selectedPiece.jumpBottomLeft || selectedPiece.jumpBottomRight) {
         document.getElementById(selectedPiece.pieceId).style.border = "3px solid green";
     }
@@ -97,22 +98,6 @@ function getAvailableMoves() {
             selectedPiece.bottomRight = true;
             tiles[selectedPiece.pieceTile + 9].setAttribute("onclick", "movePiece(9)");
         };
-        if (layout[selectedPiece.pieceTile - 18] === null && !tiles[selectedPiece.pieceTile - 18].classList.contains("empty") && layout[selectedPiece.pieceTile - 9] >= 12 && selectedPiece.king) {
-            selectedPiece.jumpTopLeft = true;
-            tiles[selectedPiece.pieceTile - 18].setAttribute("onclick", "movePiece(-18)");
-        };
-        if (layout[selectedPiece.pieceTile - 14] === null && !tiles[selectedPiece.pieceTile - 14].classList.contains("empty") && layout[selectedPiece.pieceTile - 7] >= 12 && selectedPiece.king) {
-            selectedPiece.jumpTopRight = true;
-            tiles[selectedPiece.pieceTile - 14].setAttribute("onclick", "movePiece(-14)");
-        };
-        if (layout[selectedPiece.pieceTile + 14] === null && !tiles[selectedPiece.pieceTile + 14].classList.contains("empty") && layout[selectedPiece.pieceTile + 7] >= 12) {
-            selectedPiece.jumpBottomLeft = true;
-            tiles[selectedPiece.pieceTile + 14].setAttribute("onclick", "movePiece(14)");
-        };
-        if (layout[selectedPiece.pieceTile + 18] === null && !tiles[selectedPiece.pieceTile + 18].classList.contains("empty") && layout[selectedPiece.pieceTile + 9] >= 12) {
-            selectedPiece.jumpBottomRight = true;
-            tiles[selectedPiece.pieceTile + 18].setAttribute("onclick", "movePiece(18)");
-        };
     } else {
         if (layout[selectedPiece.pieceTile - 9] === null && !tiles[selectedPiece.pieceTile - 9].classList.contains("empty")) {
             selectedPiece.topLeft = true;
@@ -130,19 +115,41 @@ function getAvailableMoves() {
             selectedPiece.bottomRight = true;
             tiles[selectedPiece.pieceTile + 9].setAttribute("onclick", "movePiece(9)");
         };
-        if (layout[selectedPiece.pieceTile - 18] === null && !tiles[selectedPiece.pieceTile - 18].classList.contains("empty") && layout[selectedPiece.pieceTile - 9] < 12) {
+    }
+};
+function getJumpMoves() {
+    if (!redTurn) {
+        if (layout[selectedPiece.pieceTile - 18] === null && !tiles[selectedPiece.pieceTile - 18].classList.contains("empty") && layout[selectedPiece.pieceTile - 9] >= 12 && selectedPiece.king) {
             selectedPiece.jumpTopLeft = true;
             tiles[selectedPiece.pieceTile - 18].setAttribute("onclick", "movePiece(-18)");
         };
-        if (layout[selectedPiece.pieceTile - 14] === null && !tiles[selectedPiece.pieceTile - 14].classList.contains("empty") && layout[selectedPiece.pieceTile - 7] < 12) {
+        if (layout[selectedPiece.pieceTile - 14] === null && !tiles[selectedPiece.pieceTile - 14].classList.contains("empty") && layout[selectedPiece.pieceTile - 7] >= 12 && selectedPiece.king) {
             selectedPiece.jumpTopRight = true;
             tiles[selectedPiece.pieceTile - 14].setAttribute("onclick", "movePiece(-14)");
         };
-        if (layout[selectedPiece.pieceTile + 14] === null && !tiles[selectedPiece.pieceTile + 14].classList.contains("empty") && layout[selectedPiece.pieceTile + 7] < 12 && selectedPiece.king) {
+        if (layout[selectedPiece.pieceTile + 14] === null && !tiles[selectedPiece.pieceTile + 14].classList.contains("empty") && layout[selectedPiece.pieceTile + 7] >= 12) {
             selectedPiece.jumpBottomLeft = true;
             tiles[selectedPiece.pieceTile + 14].setAttribute("onclick", "movePiece(14)");
         };
-        if (layout[selectedPiece.pieceTile + 18] === null && !tiles[selectedPiece.pieceTile + 18].classList.contains("empty") && layout[selectedPiece.pieceTile + 9] < 12 && selectedPiece.king) {
+        if (layout[selectedPiece.pieceTile + 18] === null && !tiles[selectedPiece.pieceTile + 18].classList.contains("empty") && layout[selectedPiece.pieceTile + 9] >= 12) {
+            selectedPiece.jumpBottomRight = true;
+            tiles[selectedPiece.pieceTile + 18].setAttribute("onclick", "movePiece(18)");
+        };
+    } else {
+        if (layout[selectedPiece.pieceTile - 18] === null && !tiles[selectedPiece.pieceTile - 18].classList.contains("empty") && (layout[selectedPiece.pieceTile - 9] < 12 && layout[selectedPiece.pieceTile - 9] != null)) {
+            selectedPiece.jumpTopLeft = true;
+            tiles[selectedPiece.pieceTile - 18].setAttribute("onclick", "movePiece(-18)");
+        };
+        if (layout[selectedPiece.pieceTile - 14] === null && !tiles[selectedPiece.pieceTile - 14].classList.contains("empty") && (layout[selectedPiece.pieceTile - 7] < 12 && layout[selectedPiece.pieceTile - 7] != null)) {
+            selectedPiece.jumpTopRight = true;
+            tiles[selectedPiece.pieceTile - 14].setAttribute("onclick", "movePiece(-14)");
+        };
+        if (layout[selectedPiece.pieceTile + 14] === null && !tiles[selectedPiece.pieceTile + 14].classList.contains("empty") && (layout[selectedPiece.pieceTile + 7] < 12 && layout[selectedPiece.pieceTile + 7] != null) && selectedPiece.king) {
+            selectedPiece.jumpBottomLeft = true;
+            tiles[selectedPiece.pieceTile + 14].setAttribute("onclick", "movePiece(14)");
+            jump = true;
+        };
+        if (layout[selectedPiece.pieceTile + 18] === null && !tiles[selectedPiece.pieceTile + 18].classList.contains("empty") && (layout[selectedPiece.pieceTile + 9] < 12 && layout[selectedPiece.pieceTile + 9] != null) && selectedPiece.king) {
             selectedPiece.jumpBottomRight = true;
             tiles[selectedPiece.pieceTile + 18].setAttribute("onclick", "movePiece(18)");
         };
@@ -176,6 +183,10 @@ function movePiece(number) {
             document.getElementById(selectedPiece.pieceId).classList.add("king");
         };
     };
+    for (let piece of playerPieces) {
+        piece.removeAttribute("onclick");
+        piece.removeEventListener("click", getPiece);
+    };
     if (number === 14 || number === -14 || number === 18 || number === -18) {
         layout[selectedPiece.pieceTile + number / 2] = null;
         tiles[selectedPiece.pieceTile + number / 2].innerHTML = "";
@@ -184,20 +195,36 @@ function movePiece(number) {
         } else {
             redScore--;
         };
+        checkForDouble();
     };
-    checkForWin();
-    for (let piece of playerPieces) {
-        piece.removeAttribute("onclick");
-        piece.removeEventListener("click", getPiece);
+    if (jump === false) {
+        for (let piece of playerPieces) {
+            if (piece.classList.contains("king")) {
+                piece.style.border = "3px solid gold";
+            } else {
+                piece.style.border = "3px solid white";
+            }
+        }
+        checkForWin();
+        selectedPiece.pieceId = -1;
+        selectedPiece.pieceTile = -1;
+        changePlayer();
     };
-    selectedPiece.pieceId = -1;
-    selectedPiece.pieceTile = -1;
-    changePlayer();
 };
-function checkForTie() {
-    for (let piece of playerPieces) {
-        
-    };
+function checkForDouble() {
+    for (let tile of tiles) {
+        tile.removeAttribute("onclick");
+    }
+    selectedPiece.jumpTopLeft = false;
+    selectedPiece.jumpTopRight = false;
+    selectedPiece.jumpBottomLeft = false;
+    selectedPiece.jumpBottomRight = false;
+    selectedPiece.pieceTile = layout.indexOf(selectedPiece.pieceId);
+    getJumpMoves();
+    if (selectedPiece.topLeft || selectedPiece.topRight || selectedPiece.bottomLeft || selectedPiece.bottomRight || selectedPiece.jumpTopLeft || selectedPiece.jumpTopRight || selectedPiece.jumpBottomLeft || selectedPiece.jumpBottomRight) {
+        document.getElementById(selectedPiece.pieceId).style.border = "3px solid green";
+    }
+    jump = (selectedPiece.jumpTopLeft || selectedPiece.jumpTopRight || selectedPiece.jumpBottomLeft || selectedPiece.jumpBottomRight);
 };
 function checkForWin() {
     if (blackScore === 0) {
